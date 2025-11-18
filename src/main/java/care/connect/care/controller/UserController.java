@@ -62,5 +62,33 @@ public interface UserController {
     );
 
 
+    @Operation(summary = "Update User Record")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "201", description = "updated",
+                    content = @Content(schema = @Schema(implementation = UserResponseDto.class))),
+            @ApiResponse(responseCode = "400", description = "Bad Request"),
+            @ApiResponse(responseCode = "401", description = "Unauthorized")
+    })
+    @PutMapping(value = "/{id}", consumes = "application/json", produces = "application/json")
+    ResponseEntity<UserResponseDto> updateUserById(
+            @PathVariable Long id,
+            @RequestBody UserRequestDto userRequestDto,
+            HttpServletRequest request
+    );
+
+    @Operation(summary = "Delete User Record")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Deleted",
+                    content = @Content(schema = @Schema(implementation = UserResponseDto.class))),
+            @ApiResponse(responseCode = "400", description = "Bad Request"),
+            @ApiResponse(responseCode = "401", description = "Unauthorized")
+    })
+    @DeleteMapping(value = "/{id}")
+    ResponseEntity<Void> updateUserById(
+            @PathVariable Long id,
+            HttpServletRequest request
+    );
+
+
 
 }
