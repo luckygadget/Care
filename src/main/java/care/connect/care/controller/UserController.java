@@ -20,7 +20,7 @@ import java.util.List;
 public interface UserController {
 
     // create User
-    @Operation(summary = "create a summary")
+    @Operation(summary = "create a User")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "201", description = "User Created",
                     content = @Content(schema = @Schema(implementation = UserRequestDto.class))),
@@ -41,7 +41,7 @@ public interface UserController {
             @ApiResponse(responseCode = "404", description = "User Not Found"),
             @ApiResponse(responseCode = "401", description = "Unauthorized")
     })
-    @GetMapping(value = "/{id}", produces = "application/json")
+    @GetMapping(value = "/{userId}", produces = "application/json")
     ResponseEntity<UserResponseDto> getUserById(
             @PathVariable Long id,
             HttpServletRequest request
@@ -52,6 +52,7 @@ public interface UserController {
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "OK",
             content = @Content(schema = @Schema(implementation = List.class))),
+            @ApiResponse(responseCode = "404", description = "User Not Found"),
             @ApiResponse(responseCode = "401", description = "Unauthorized")
     })
     @GetMapping(produces = "application/json")
@@ -67,9 +68,10 @@ public interface UserController {
             @ApiResponse(responseCode = "201", description = "updated",
                     content = @Content(schema = @Schema(implementation = UserResponseDto.class))),
             @ApiResponse(responseCode = "400", description = "Bad Request"),
+            @ApiResponse(responseCode = "404", description = "User Not Found"),
             @ApiResponse(responseCode = "401", description = "Unauthorized")
     })
-    @PutMapping(value = "/{id}", consumes = "application/json", produces = "application/json")
+    @PutMapping(value = "/{userId}", consumes = "application/json", produces = "application/json")
     ResponseEntity<UserResponseDto> updateUserById(
             @PathVariable Long id,
             @RequestBody UserRequestDto userRequestDto,
@@ -80,11 +82,11 @@ public interface UserController {
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Deleted",
                     content = @Content(schema = @Schema(implementation = UserResponseDto.class))),
-            @ApiResponse(responseCode = "400", description = "Bad Request"),
+            @ApiResponse(responseCode = "404", description = "User Not Found"),
             @ApiResponse(responseCode = "401", description = "Unauthorized")
     })
-    @DeleteMapping(value = "/{id}")
-    ResponseEntity<Void> updateUserById(
+    @DeleteMapping(value = "/{userId}")
+    ResponseEntity<Void> deleteUserById(
             @PathVariable Long id,
             HttpServletRequest request
     );
