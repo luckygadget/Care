@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RequestMapping("/care/maids")
-public interface MaidController {
+public interface IMaidController {
 
     // create <Maid>
     @Operation(summary = "create a Maid")

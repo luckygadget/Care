@@ -17,7 +17,7 @@ import java.util.List;
 
 @RequestMapping("/care/users")
 @Tag(name = "User Controller")
-public interface UserController {
+public interface IUserController {
 
     // create User
     @Operation(summary = "create a User")

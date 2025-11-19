@@ -17,7 +17,7 @@ import java.util.List;
 
 @RequestMapping("/care/bookings")
 @Tag(name = "Booking Controller")
-public interface BookingController {
+public interface IBookingController {
 
     // Create User
     @Operation(summary = "Create a Booking")
@@ -76,10 +76,6 @@ public interface BookingController {
             @PathVariable Long id,
             HttpServletRequest request
     );
-
-
-
-
 
 
 }
