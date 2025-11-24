@@ -43,7 +43,7 @@ public interface IBookingController {
     })
     @GetMapping(value = "/{bookingId}", produces = "application/json")
     ResponseEntity<BookingResponseDto> getBookingById(
-            @PathVariable Long id,
+            @PathVariable String id,
             HttpServletRequest request
     );
 
@@ -73,7 +73,7 @@ public interface IBookingController {
     })
     @DeleteMapping(value = "/{bookingId}", produces = "application/json")
     ResponseEntity<BookingResponseDto> deleteBookingById(
-            @PathVariable Long id,
+            @PathVariable String id,
             HttpServletRequest request
     );
 

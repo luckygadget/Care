@@ -5,9 +5,11 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
 import care.connect.care.enums.models.Skills;
+import lombok.Data;
 
 import java.util.List;
 
+@Data
 public class MaidRequestDto {
 
     @NotBlank

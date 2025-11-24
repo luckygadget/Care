@@ -7,9 +7,11 @@ import jakarta.validation.constraints.Size;
 
 import care.connect.care.enums.models.Gender;
 import care.connect.care.enums.models.Role;
+import lombok.Data;
 
 import java.time.LocalDate;
 
+@Data
 public class UserRequestDto {
 
     @NotBlank(message = "First Name is required")

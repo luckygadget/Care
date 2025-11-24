@@ -42,7 +42,7 @@ public interface IMaidController {
     })
     @GetMapping(value = "/{MaidId}", produces = "application/json")
     ResponseEntity<MaidResponseDto> getMaidById(
-            @PathVariable Long id,
+            @PathVariable String id,
             HttpServletRequest request
     );
 
@@ -72,7 +72,7 @@ public interface IMaidController {
     })
     @PutMapping(value = "/{MaidId}", consumes = "application/json", produces = "application/json")
     ResponseEntity<MaidResponseDto> updateMaidById(
-            @PathVariable Long id,
+            @PathVariable String id,
             @RequestBody MaidRequestDto MaidRequestDto,
             HttpServletRequest request
     );
@@ -86,7 +86,7 @@ public interface IMaidController {
     })
     @DeleteMapping(value = "/{MaidId}")
     ResponseEntity<Void> deleteMaidById(
-            @PathVariable Long id,
+            @PathVariable String id,
             HttpServletRequest request
     );
 

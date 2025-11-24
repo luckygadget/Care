@@ -43,7 +43,7 @@ public interface IUserController {
     })
     @GetMapping(value = "/{userId}", produces = "application/json")
     ResponseEntity<UserResponseDto> getUserById(
-            @PathVariable Long id,
+            @PathVariable String id,
             HttpServletRequest request
     );
 
@@ -73,7 +73,7 @@ public interface IUserController {
     })
     @PutMapping(value = "/{userId}", consumes = "application/json", produces = "application/json")
     ResponseEntity<UserResponseDto> updateUserById(
-            @PathVariable Long id,
+            @PathVariable String id,
             @RequestBody UserRequestDto userRequestDto,
             HttpServletRequest request
     );
@@ -87,7 +87,7 @@ public interface IUserController {
     })
     @DeleteMapping(value = "/{userId}")
     ResponseEntity<Void> deleteUserById(
-            @PathVariable Long id,
+            @PathVariable String id,
             HttpServletRequest request
     );
 

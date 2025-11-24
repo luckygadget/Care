@@ -37,7 +37,7 @@ public class UserControllerImpl implements IUserController {
     }
 
     @Override
-    public ResponseEntity<UserResponseDto> getUserById(Long id, HttpServletRequest request) {
+    public ResponseEntity<UserResponseDto> getUserById(String id, HttpServletRequest request) {
         return null;
     }
 
@@ -47,12 +47,12 @@ public class UserControllerImpl implements IUserController {
     }
 
     @Override
-    public ResponseEntity<UserResponseDto> updateUserById(Long id, UserRequestDto userRequestDto, HttpServletRequest request) {
+    public ResponseEntity<UserResponseDto> updateUserById(String id, UserRequestDto userRequestDto, HttpServletRequest request) {
         return null;
     }
 
     @Override
-    public ResponseEntity<Void> deleteUserById(Long id, HttpServletRequest request) {
+    public ResponseEntity<Void> deleteUserById(String id, HttpServletRequest request) {
         return null;
     }
 }
