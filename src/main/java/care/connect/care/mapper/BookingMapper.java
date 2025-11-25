@@ -13,13 +13,7 @@ import java.awt.print.Book;
 @Mapper(componentModel = "spring")
 public interface BookingMapper {
 
-    BookingMapper INSTANCE = Mappers.getMapper(BookingMapper.class);
 
-    @Mapping(target = "id", ignore = true)
-    @Mapping(target = "createdAt", expression = "java(java.time.LocalDateTime.now())")
-    @Mapping(target = "updatedAt", expression = "java(java.time.LocalDateTime.now())")
-    @Mapping(target = "maid", ignore = true)  // set in service
-    @Mapping(target = "user", ignore = true)  // set in service
     Booking toEntity(BookingRequestDto dto);
 
     BookingResponseDto toResponseDto(Booking booking);

@@ -8,7 +8,7 @@ import org.springframework.data.domain.Pageable;
 
 public interface UserService {
 
-    UserResponseDto createUser(UserRequestDto requestDto) throws ApiException;
+    UserResponseDto createUser(UserRequestDto requestDto);
 
     UserResponseDto getUserById(String id);
 
@@ -16,6 +16,6 @@ public interface UserService {
 
     UserResponseDto updateUserById(String id, UserRequestDto requestDto);
 
-    void deleteUser(String id) throws ApiException;
+    void deleteUser(String id);
 
 }

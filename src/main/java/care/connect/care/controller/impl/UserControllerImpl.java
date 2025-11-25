@@ -28,11 +28,13 @@ public class UserControllerImpl implements IUserController {
     @Override
     public ResponseEntity<UserResponseDto> createUser(UserRequestDto userRequestDto, HttpServletRequest request) {
 
+        log.info("Received User Create request :::::");
+        UserResponseDto userResponseDto = userService.createUser(userRequestDto);
 
-//        log.info("post call create Users in try block body : ", userRequestDto);
-//        UserResponseDto response = userService.createUser();
-//        return new ResponseEntity<>(response, HttpStatus.CREATED);
-        return null;
+        log.info("=======> User has been created Successfully: {}", userResponseDto.getId());
+
+        return ResponseEntity.status(HttpStatus.CREATED).body(userResponseDto);
+
 
     }
 

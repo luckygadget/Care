@@ -2,7 +2,7 @@ package care.connect.care.dto.response;
 
 public class AddressResponseDto {
 
-    private Long id;
+    private String address_id;
 
     private String street;
 
@@ -12,6 +12,6 @@ public class AddressResponseDto {
 
     private String country;
 
-    private String postalCode;
+    private String pincode;
 }
 

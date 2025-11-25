@@ -12,11 +12,8 @@ import org.mapstruct.factory.Mappers;
 @Mapper(componentModel = "spring")
 public interface UserMapper {
 
-    UserMapper INSTANCE  = Mappers.getMapper(UserMapper.class);
 
-    @Mapping(target = "id", ignore = true)
-    @Mapping(target = "createdAt", expression = "java(java.time.LocalDateTime.now())")
-    @Mapping(target = "updatedAt", expression = "java(java.time.LocalDateTime.now())")
+
     User toEntity(UserRequestDto dto);
 
     UserResponseDto toResponseDto(User user);

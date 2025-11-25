@@ -4,11 +4,11 @@ import java.time.LocalDateTime;
 
 public class BookingResponseDto {
 
-    private Long id;
+    private String booking_id;
 
-    private Long userId;
+    private String user_id;
 
-    private Long maidId;
+    private String maid_id;
 
     private LocalDateTime bookingStartTime;
 

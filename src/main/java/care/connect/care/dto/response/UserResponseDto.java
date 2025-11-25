@@ -4,10 +4,13 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 import care.connect.care.enums.models.Role;
+import lombok.Data;
 
+
+@Data
 public class UserResponseDto {
 
-    private Long id;
+    private String user_id;
 
     private String firstName;
 

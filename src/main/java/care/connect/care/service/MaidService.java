@@ -10,7 +10,7 @@ import org.springframework.data.domain.Pageable;
 
 public interface MaidService {
 
-    MaidResponseDto createMaid(MaidRequestDto requestDto) throws ApiException;
+    MaidResponseDto createMaid(MaidRequestDto requestDto);
 
     MaidResponseDto getMaidById(String id);
 
@@ -18,5 +18,5 @@ public interface MaidService {
 
     MaidResponseDto updateMaidById(String id, MaidRequestDto requestDto);
 
-    void deleteMaid(String id) throws ApiException;
+    void deleteMaid(String id);
 }

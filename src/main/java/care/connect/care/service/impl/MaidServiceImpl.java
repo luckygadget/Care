@@ -26,34 +26,39 @@ public class MaidServiceImpl implements MaidService {
 
 
     @Override
-    public MaidResponseDto createMaid(MaidRequestDto requestDto) throws ApiException {
+    public MaidResponseDto createMaid(MaidRequestDto requestDto) {
         log.info("====> Creating New Maid: :{}", requestDto);
 
-        if(maidRepository.existsByPhoneNumber(requestDto.getPhoneNumber())){
-            throw new ApiException("Maid already Exist");
-        }
-
-        Maid maid = maidMapper.toEntity(requestDto);
-        Maid savedMaid = maidRepository.save(maid);
-        return maidMapper.toResponseDto(savedMaid);
+//        if(maidRepository.existsByPhoneNumber(requestDto.getPhoneNumber())){
+//            throw new ApiException("Maid already Exist");
+//        }
+//
+//        Maid maid = maidMapper.toEntity(requestDto);
+//        Maid savedMaid = maidRepository.save(maid);
+//        return maidMapper.toResponseDto(savedMaid);
+        return null;
     }
 
     @Override
     public MaidResponseDto getMaidById(String id) {
 
-        log.info("====> Fetching Maid by Id: {}", id);
-        Maid maid = maidRepository.findById(id)
-                .orElseThrow() -> new ApiException("Maid Not Found");
+//        log.info("====> Fetching Maid by Id: {}", id);
+//        Maid maid = maidRepository.findById(id)
+//                .orElseThrow() -> new ApiException("Maid Not Found");
+//
+//        return maidMapper.toResponseDto(maid);
+        return null;
 
-        return maidMapper.toResponseDto(maid);
 
     }
 
     @Override
     public Page<MaidService> getAllMaids(Pageable page) {
-        log.info("Fetching maids: page {} size {}", page.getPageNumber(), page.getPageSize());
+//        log.info("Fetching maids: page {} size {}", page.getPageNumber(), page.getPageSize());
+//
+//        return maidRepository.findAll(pageable).map(maidMapper::toResponseDto);
+        return null;
 
-        return maidRepository.findAll(pageable).map(maidMapper::toResponseDto);
 
     }
 
@@ -63,7 +68,7 @@ public class MaidServiceImpl implements MaidService {
     }
 
     @Override
-    public void deleteMaid(String id) throws ApiException {
+    public void deleteMaid(String id) {
 
     }
 }

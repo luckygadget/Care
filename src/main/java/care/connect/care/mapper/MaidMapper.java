@@ -11,11 +11,7 @@ import org.mapstruct.factory.Mappers;
 @Mapper(componentModel = "spring")
 public interface MaidMapper {
 
-    MaidMapper INSTANCE = Mappers.getMapper(MaidMapper.class);
 
-    @Mapping(target = "id", ignore = true)
-    @Mapping(target = "createdAt", expression = "java(java.time.LocalDateTime.now())")
-    @Mapping(target = "updatedAt", expression = "java(java.time.LocalDateTime.now())")
     Maid toEntity(MaidRequestDto dto);
 
     MaidResponseDto toResponseDto(Maid maid);

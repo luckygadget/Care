@@ -7,7 +7,7 @@ import java.util.List;
 
 public class MaidResponseDto {
 
-    private Long id;
+    private String maid_id;
 
     private String fullName;
 

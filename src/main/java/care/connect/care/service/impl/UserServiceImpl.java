@@ -3,6 +3,7 @@ package care.connect.care.service.impl;
 import care.connect.care.dto.request.UserRequestDto;
 import care.connect.care.dto.response.UserResponseDto;
 import care.connect.care.exception.ApiException;
+import care.connect.care.exception.BadRequestException;
 import care.connect.care.mapper.UserMapper;
 import care.connect.care.models.User;
 import care.connect.care.repositories.UserRepository;
@@ -14,8 +15,6 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDateTime;
-
 
 @Slf4j
 @Service
@@ -25,12 +24,12 @@ public class UserServiceImpl implements UserService {
     private final UserRepository userRepository;
     private final UserMapper userMapper;
     @Override
-    public UserResponseDto createUser(UserRequestDto requestDto) throws ApiException {
+    public UserResponseDto createUser(UserRequestDto requestDto) {
 
         log.info("====> Creating New User: {} ", requestDto);
 
-        if(userRepository.existsByEmail(requestDto.getEmail())){
-            throw new ApiException("Email already Exist");
+        if (userRepository.existsByEmail(requestDto.getEmail())) {
+            throw new BadRequestException("Email already exists");
         }
 
         User user = userMapper.toEntity(requestDto);
@@ -44,50 +43,55 @@ public class UserServiceImpl implements UserService {
     @Override
     public UserResponseDto getUserById(String id) {
 
-        log.info("======> Fetching User by Id : {}", id);
+//        log.info("======> Fetching User by Id : {}", id);
+//
+//        User user = userRepository.findById(id)
+//                .orElseThrow() -> new ApiException("User Not Found");
+//
+//        return userMapper.toResponseDto(user);
+        return null;
 
-        User user = userRepository.findById(id)
-                .orElseThrow() -> new ApiException("User Not Found");
-
-        return userMapper.toResponseDto(user);
     }
 
     @Override
     public Page<UserService> getAllUsers(Pageable page) {
 
-        log.info("Fetching users: page {} size {}", page.getPageNumber(), page.getPageSize());
+//        log.info("Fetching users: page {} size {}", page.getPageNumber(), page.getPageSize());
+//
+//        return userRepository.findAll(pageable).map(userMapper::toResponseDto);
+        return null;
 
-        return userRepository.findAll(pageable).map(userMapper::toResponseDto);
     }
 
     @Override
     @Transactional
     public UserResponseDto updateUserById(String id, UserRequestDto requestDto) {
 
-        log.info("=====> Updating User : {}");
-
-        User user = userRepository.findById(id)
-                .orElseThrow(() -> new ApiException("User not found"));
-
-        user.setFirstName(requestDto.getFirstName());
-        user.setPhoneNumber(requestDto.getPhoneNumber());
-        user.setGender(String.valueOf(requestDto.getGender()));
-        user.setUpdatedAt(LocalDateTime.now());
-
-        User updatedUser = userRepository.save(user);
-
-        return userMapper.toResponseDto(updatedUser);
+//        log.info("=====> Updating User : {}");
+//
+//        User user = userRepository.findById(id)
+//                .orElseThrow(() -> new ApiException("User not found"));
+//
+//        user.setFirstName(requestDto.getFirstName());
+//        user.setPhoneNumber(requestDto.getPhoneNumber());
+//        user.setGender(String.valueOf(requestDto.getGender()));
+//        user.setUpdatedAt(LocalDateTime.now());
+//
+//        User updatedUser = userRepository.save(user);
+//
+//        return userMapper.toResponseDto(updatedUser);
+        return null;
     }
 
     @Override
-    public void deleteUser(String id) throws ApiException {
-        log.info("Deleting user: {}", id);
-
-        if (!userRepository.existsById(id)) {
-            throw new ApiException("User not found");
-        }
-
-        userRepository.deleteById(id);
+    public void deleteUser(String id) {
+//        log.info("Deleting user: {}", id);
+//
+//        if (!userRepository.existsById(id)) {
+//            throw new ApiException("User not found");
+//        }
+//
+//        userRepository.deleteById(id);
 
     }
 }

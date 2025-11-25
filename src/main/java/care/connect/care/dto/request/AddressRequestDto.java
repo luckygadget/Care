@@ -22,5 +22,5 @@ public class AddressRequestDto {
 
     @NotBlank
     @Pattern(regexp = "^[1-9][0-9]{5}$", message = "Invalid Indian PIN code")
-    private String postalCode;
+    private String pincode;
 }
