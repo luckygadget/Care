@@ -1,14 +1,18 @@
 package care.connect.care.dto.response;
 
+import lombok.Data;
+
 import java.time.LocalDateTime;
 
+
+@Data
 public class BookingResponseDto {
 
-    private String booking_id;
+    private String bookingId;
 
-    private String user_id;
+    private String userId;
 
-    private String maid_id;
+    private String maidId;
 
     private LocalDateTime bookingStartTime;
 

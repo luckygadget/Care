@@ -1,13 +1,14 @@
 package care.connect.care.dto.response;
 
 import care.connect.care.enums.Availability;
+import lombok.Data;
 
 import java.time.LocalDateTime;
 import java.util.List;
-
+@Data
 public class MaidResponseDto {
 
-    private String maid_id;
+    private String maidId;
 
     private String fullName;
 

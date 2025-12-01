@@ -31,7 +31,7 @@ public class UserControllerImpl implements IUserController {
         log.info("Received User Create request :::::");
         UserResponseDto userResponseDto = userService.createUser(userRequestDto);
 
-        log.info("=======> User has been created Successfully: {}", userResponseDto.getId());
+        log.info("=======> User has been created Successfully: {}", userResponseDto.getUserId());
 
         return ResponseEntity.status(HttpStatus.CREATED).body(userResponseDto);
 

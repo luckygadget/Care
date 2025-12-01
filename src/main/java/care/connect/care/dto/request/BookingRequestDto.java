@@ -10,9 +10,9 @@ import java.time.LocalDateTime;
 public class BookingRequestDto {
 
     @NotNull
-    private Long userId;
+    private String userId;
     @NotNull
-    private Long maidId;
+    private String maidId;
     @NotNull
     private LocalDateTime bookingStartTime;
     @NotNull

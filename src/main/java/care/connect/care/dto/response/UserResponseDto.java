@@ -7,10 +7,12 @@ import care.connect.care.enums.models.Role;
 import lombok.Data;
 
 
+
+
 @Data
 public class UserResponseDto {
 
-    private String user_id;
+    private String userId;
 
     private String firstName;
 

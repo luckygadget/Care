@@ -1,8 +1,12 @@
 package care.connect.care.dto.response;
 
+
+import lombok.Data;
+
+@Data
 public class AddressResponseDto {
 
-    private String address_id;
+    private String addressId;
 
     private String street;
 

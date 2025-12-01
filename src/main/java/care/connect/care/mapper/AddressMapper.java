@@ -8,7 +8,6 @@ import org.mapstruct.Mapping;
 @Mapper(componentModel = "spring")
 public interface AddressMapper {
 
-    @Mapping(target = "address_id", source = "address_id")
-    @Mapping(target = "pincode", source = "pincode")
-    AddressResponseDto toResponse(Address entity);
+    AddressResponseDto toResponse(Address address);
 }
+

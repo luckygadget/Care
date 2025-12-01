@@ -3,7 +3,9 @@ package care.connect.care.models;
 
 import care.connect.care.enums.Availability;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,11 +13,12 @@ import java.util.List;
 @Entity
 @Table(name = "maids")
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class Maid {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long maid_id;
+    private String maidId;
 
     private String experience;
     @Enumerated(EnumType.STRING)
