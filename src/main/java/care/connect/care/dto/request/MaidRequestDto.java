@@ -1,10 +1,11 @@
 package care.connect.care.dto.request;
 
 import care.connect.care.enums.Availability;
+import care.connect.care.enums.Gender;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
-import care.connect.care.enums.models.Skills;
+import care.connect.care.enums.Skills;
 import lombok.Data;
 
 import java.util.List;
@@ -21,7 +22,7 @@ public class MaidRequestDto {
 
     private String bio;
 
-    private care.connect.care.enums.models.Gender gender;
+    private Gender gender;
 
     @NotNull
     private List<Skills> skills;  // COOKING, CLEANING, BABYSITTING, etc.

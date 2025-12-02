@@ -3,7 +3,8 @@ package care.connect.care.dto.response;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
-import care.connect.care.enums.models.Role;
+import care.connect.care.enums.Gender;
+import care.connect.care.enums.Role;
 import lombok.Data;
 
 
@@ -22,7 +23,7 @@ public class UserResponseDto {
 
     private String phoneNumber;
 
-    private care.connect.care.enums.models.Gender gender;
+    private Gender gender;
 
     private LocalDate dateOfBirth;
 

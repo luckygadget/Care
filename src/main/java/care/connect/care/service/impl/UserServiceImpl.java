@@ -99,6 +99,7 @@ public class UserServiceImpl implements UserService {
             address.setPincode(addreq.getPincode());
             address.setUser(user); // set owner
             addresses.add(address);
+            address.setAddressId(UUID.randomUUID().toString());
 
         }
 

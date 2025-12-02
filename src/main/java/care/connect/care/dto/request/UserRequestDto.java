@@ -5,8 +5,8 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 
-import care.connect.care.enums.models.Gender;
-import care.connect.care.enums.models.Role;
+import care.connect.care.enums.Gender;
+import care.connect.care.enums.Role;
 import lombok.Data;
 
 import java.time.LocalDate;

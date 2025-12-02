@@ -2,6 +2,7 @@ package care.connect.care.models;
 
 
 import care.connect.care.enums.Availability;
+import care.connect.care.enums.Skills;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -22,7 +23,7 @@ public class Maid {
 
     private String experience;
     @Enumerated(EnumType.STRING)
-    private care.connect.care.enums.models.Skills skills;
+    private Skills skills;
 
     @Enumerated(EnumType.STRING)
     private Availability availability;

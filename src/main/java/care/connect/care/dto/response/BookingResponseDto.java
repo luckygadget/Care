@@ -1,5 +1,6 @@
 package care.connect.care.dto.response;
 
+import care.connect.care.enums.Status;
 import lombok.Data;
 
 import java.time.LocalDateTime;
@@ -20,7 +21,7 @@ public class BookingResponseDto {
 
     private String notes;
 
-    private care.connect.care.enums.models.Status status;
+    private Status status;
 
     private Double totalAmount;
 

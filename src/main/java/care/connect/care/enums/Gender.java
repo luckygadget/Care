@@ -1,4 +1,4 @@
-package care.connect.care.enums.models;
+package care.connect.care.enums;
 
 public enum Gender {
     MALE,

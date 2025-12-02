@@ -1,6 +1,8 @@
 package care.connect.care.dto.response;
 
 import care.connect.care.enums.Availability;
+import care.connect.care.enums.Gender;
+import care.connect.care.enums.Skills;
 import lombok.Data;
 
 import java.time.LocalDateTime;
@@ -16,9 +18,9 @@ public class MaidResponseDto {
 
     private String bio;
 
-    private care.connect.care.enums.models.Gender gender;
+    private Gender gender;
 
-    private List<care.connect.care.enums.models.Skills> skills;
+    private List<Skills> skills;
 
     private Availability availability;
 

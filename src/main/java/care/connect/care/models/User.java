@@ -1,6 +1,8 @@
 package care.connect.care.models;
 
 
+import care.connect.care.enums.Role;
+import care.connect.care.enums.Status;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -33,7 +35,7 @@ public class User {
     private List<Address> address = new ArrayList<>();
 
     @Enumerated(EnumType.STRING)
-    private care.connect.care.enums.models.Status status;
+    private Status status;
 
     private LocalDateTime  createdAt;
     private LocalDateTime  updatedAt;
@@ -49,7 +51,7 @@ public class User {
 
 
     @Enumerated(EnumType.STRING)
-    private care.connect.care.enums.models.Role role;
+    private Role role;
 
 
 

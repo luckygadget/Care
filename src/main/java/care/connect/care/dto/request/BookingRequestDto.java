@@ -1,5 +1,6 @@
 package care.connect.care.dto.request;
 
+import care.connect.care.enums.Status;
 import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 
@@ -20,6 +21,6 @@ public class BookingRequestDto {
     private String notes;
     private AddressRequestDto serviceAddress;
     @NotNull
-    private care.connect.care.enums.models.Status status;  // PENDING, ACCEPTED, COMPLETED, CANCELLED
+    private Status status;  // PENDING, ACCEPTED, COMPLETED, CANCELLED
 }
 
