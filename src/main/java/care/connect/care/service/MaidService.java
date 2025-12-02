@@ -7,6 +7,7 @@ import care.connect.care.dto.response.UserResponseDto;
 import care.connect.care.exception.ApiException;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.stereotype.Repository;
 
 public interface MaidService {
 
