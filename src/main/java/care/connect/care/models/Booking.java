@@ -27,11 +27,11 @@ public class Booking {
     private String notes;
 
     @ManyToOne
-    @JoinColumn(name = "user_id")  // Customer who made the booking
+    @JoinColumn(name = "userId")  // Customer who made the booking
     private User user;
 
     @ManyToOne
-    @JoinColumn(name = "maid_id")  // Maid assigned to the booking
+    @JoinColumn(name = "maidId")  // Maid assigned to the booking
     private Maid maid;
 
     // Getters and Setters

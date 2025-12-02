@@ -23,7 +23,7 @@ public class Address {
     private String addressType;  // e.g., "Home", "Work"
 
     @ManyToOne
-    @JoinColumn(name = "user_id")
+    @JoinColumn(name = "userId")
     private User user;
 
 }
