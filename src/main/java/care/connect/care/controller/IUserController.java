@@ -91,6 +91,20 @@ public interface IUserController {
             HttpServletRequest request
     );
 
+        @Operation(summary = "Get UserBy by Email and Phone Number")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Ok",
+            content = @Content(schema = @Schema(implementation = UserGetIdResponseDto.class))),
+            @ApiResponse(responseCode = "404", description = "User Not Found"),
+            @ApiResponse(responseCode = "401", description = "Unauthorized")
+    })
+    @PostMapping(value = "/getUserId", consumes = "application/json", produces = "application/json")
+    ResponseEntity<UserGetIdResponseDto> getUserById(
+            @RequestBody UserGetIdRequestDto userGetIdRequestDto,
+            HttpServletRequest request
+            );
+
+
 
 
 }
