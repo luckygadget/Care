@@ -2,7 +2,9 @@ package care.connect.care.controller.impl;
 
 
 import care.connect.care.controller.IUserController;
+import care.connect.care.dto.request.UserGetIdRequestDto;
 import care.connect.care.dto.request.UserRequestDto;
+import care.connect.care.dto.response.UserGetIdResponseDto;
 import care.connect.care.dto.response.UserResponseDto;
 import care.connect.care.service.UserService;
 import jakarta.servlet.http.HttpServletRequest;
@@ -56,5 +58,15 @@ public class UserControllerImpl implements IUserController {
     @Override
     public ResponseEntity<Void> deleteUserById(String id, HttpServletRequest request) {
         return null;
+    }
+
+    @Override
+    public ResponseEntity<UserGetIdResponseDto> getUserById(UserGetIdRequestDto userGetIdRequestDto, HttpServletRequest request) {
+        log.info("Received User Get request :::::");
+        UserGetIdResponseDto userGetIdResponseDto = userService.getUserById(userGetIdRequestDto);
+
+        log.info("=======> User Details fetched Successfully: {}", userGetIdResponseDto.getUserId());
+
+        return ResponseEntity.status(HttpStatus.OK).body(userGetIdResponseDto);
     }
 }
