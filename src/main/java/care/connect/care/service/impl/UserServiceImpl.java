@@ -168,4 +168,19 @@ public class UserServiceImpl implements UserService {
 //        userRepository.deleteById(id);
 
     }
+
+        @Override
+    public UserResponseDto getUserById(UserGetIdRequestDto userGetIdRequestDto) {
+
+        if(!userRepository.existsByEmail(userGetIdRequestDto.getEmailId())){
+            throw new BadRequestException("User Not Found");
+        }
+
+        if(!userRepository.existsByPhoneNumber(userGetIdRequestDto.getPhoneNumber())){
+            throw new BadRequestException("User Not Found");
+        }
+        
+        
+        return null;
+    }
 }
