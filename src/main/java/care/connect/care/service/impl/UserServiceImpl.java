@@ -1,6 +1,8 @@
 package care.connect.care.service.impl;
 
+import care.connect.care.dto.request.UserGetIdRequestDto;
 import care.connect.care.dto.request.UserRequestDto;
+import care.connect.care.dto.response.UserGetIdResponseDto;
 import care.connect.care.dto.response.UserResponseDto;
 import care.connect.care.exception.ApiException;
 import care.connect.care.exception.BadRequestException;
@@ -20,6 +22,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.UUID;
 
@@ -64,6 +67,8 @@ public class UserServiceImpl implements UserService {
         user.setFirstName(requestDto.getFirstName());
         user.setLastName(requestDto.getLastName());
 
+        user.setProfileImageUrl(requestDto.getProfileImageUrl() != null && !requestDto.getProfileImageUrl().trim().isEmpty() ? requestDto.getProfileImageUrl() : "Not Provided" );
+
         // hash password before saving
         if(requestDto.getPassword() != null && !requestDto.getPassword().isBlank()){
             user.setPassword(passwordEncoder.encode(requestDto.getPassword()));
@@ -82,21 +87,21 @@ public class UserServiceImpl implements UserService {
         // timestamps
         LocalDateTime now = LocalDateTime.now();
         user.setCreatedAt(now);
-//        user.setUpdatedAt(now);
+        user.setUpdatedAt(now);
 
         // handling Addresses
 
         List<Address> addresses = new ArrayList<>();
         if(requestDto.getAddress() != null){
-            var addreq = requestDto.getAddress();
+            var requestDtoAddress = requestDto.getAddress();
              Address address =  new Address();
 
-             address.setCity(addreq.getCity());
-             address.setCountry(addreq.getCountry());
-            address.setStreet(addreq.getStreet());
-            address.setCountry(addreq.getCountry());
+             address.setCity(requestDtoAddress.getCity());
+             address.setCountry(requestDtoAddress.getCountry());
+            address.setStreet(requestDtoAddress.getStreet());
+            address.setCountry(requestDtoAddress.getCountry());
             // your DTO has postalCode but entity has pincode
-            address.setPincode(addreq.getPincode());
+            address.setPincode(requestDtoAddress.getPincode());
             address.setUser(user); // set owner
             addresses.add(address);
             address.setAddressId(UUID.randomUUID().toString());
@@ -169,18 +174,24 @@ public class UserServiceImpl implements UserService {
 
     }
 
-        @Override
-    public UserResponseDto getUserById(UserGetIdRequestDto userGetIdRequestDto) {
+    @Override
+    public UserGetIdResponseDto getUserById(UserGetIdRequestDto userGetIdRequestDto) {
 
-        if(!userRepository.existsByEmail(userGetIdRequestDto.getEmailId())){
+        if(!userRepository.existsByEmail(userGetIdRequestDto.getEmail())){
             throw new BadRequestException("User Not Found");
         }
 
         if(!userRepository.existsByPhoneNumber(userGetIdRequestDto.getPhoneNumber())){
             throw new BadRequestException("User Not Found");
         }
-        
-        
-        return null;
+
+        User user = userRepository.findByEmail(userGetIdRequestDto.getEmail()).get();
+
+        UserGetIdResponseDto userGetIdResponseDto = new UserGetIdResponseDto();
+        userGetIdResponseDto.setUserId(user.getUserId());
+
+
+
+        return userGetIdResponseDto;
     }
 }
