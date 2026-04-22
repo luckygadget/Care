@@ -1,7 +1,9 @@
 package care.connect.care.controller;
 
 
+import care.connect.care.dto.request.UserGetIdRequestDto;
 import care.connect.care.dto.request.UserRequestDto;
+import care.connect.care.dto.response.UserGetIdResponseDto;
 import care.connect.care.dto.response.UserResponseDto;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
@@ -91,7 +93,8 @@ public interface IUserController {
             HttpServletRequest request
     );
 
-        @Operation(summary = "Get UserBy by Email and Phone Number")
+
+    @Operation(summary = "Get UserBy by Email and Phone Number")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Ok",
             content = @Content(schema = @Schema(implementation = UserGetIdResponseDto.class))),
@@ -103,7 +106,6 @@ public interface IUserController {
             @RequestBody UserGetIdRequestDto userGetIdRequestDto,
             HttpServletRequest request
             );
-
 
 
 
